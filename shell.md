@@ -288,3 +288,72 @@ find ./ -name 'kafka.sh' -exec cat {} \;
 
 ## 文本处理 grep 、sed、awk
 
+### grep 和 egrep
+
+```shell
+	## 第一种形式
+	grep [option] [pattern] [file1,file2]
+	
+	
+	## 第二种形式
+	command | grep [option] [pattern]
+	
+	
+	-v # 不限时匹配行信息
+	-i # 搜索时忽略大小写
+	-n # 显示行号
+	-r # 递归搜索
+	-E # 支持扩展正则表达式
+	-F # 不按正则表达式匹配，按照字符串字面意思匹配
+	-c # 指数出匹配行数名不限时具体内容
+	-w # 匹配整词
+	-x # 匹配整行
+	-l # 只列出匹配的文件名，不限时具体匹配行内容
+	
+	
+```
+
+### sed 流编译器
+
+```shell
+## 第一种形式
+	stdout | sed [option] "pattern command"
+	
+## 第二种形式
+	sed [option] "pattern command" file
+	
+	
+```
+
+
+
+### awk 报告生成器
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
