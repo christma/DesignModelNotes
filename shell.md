@@ -322,7 +322,68 @@ find ./ -name 'kafka.sh' -exec cat {} \;
 ## 第二种形式
 	sed [option] "pattern command" file
 	
+	-n # 只打印模式匹配行
+	-e # 直接在命令行进行sed 编辑，默认选项
+	-f # 编辑动作保存在文件中，指定文件执行
+	-r # 支持正则表达式
+	-i # 直接修改内容
 	
+	-d # 删除
+	
+	-a # 行后增加
+	
+	-i # 行前增加
+	
+	-r # 将后面指定文件的内容追加到 行后
+	
+	-w # 将匹配的行内容 另存到其他文件中
+	
+	
+	
+	sed -n '17p' file #1. 打印文件的第17行
+	
+	sed -n '10, 20p' file # 2.打印文件的 10～20行
+	
+	sed -n '10 ,+5p' file # 3.从第10行 +5行
+	
+	
+	sed 's/pattern/string/'  # 替换一个
+	
+	sed 's/pattern/string/g' # 替换全部
+	
+	sed 's/pattern/string/2g' # 替换前两个
+	
+	sed 's/pattern/string/ig' # 全部替换，忽略大小写
+	
+	
+	
+```
+
+```shell
+# 1、打印/etc/passwa中第20行的内容
+
+sed -n '20p' /etc/passwd
+
+# 2、打印/etc/passwd中从第8行开始,到第15行结束的内容
+
+sed -n "8, 15p' /etc/passwd
+
+# 3、 打印/etc/passwd中从第8行开始,然后+5行结束的内容 
+sed -n '8,+5p' /etc/passwd
+
+# 4、打印/etc/passwa中开头匹配hdfs字符串的内容
+
+sed -n ' /^hafs/p' /etc/passwd
+
+# 5、打印/etc/passwd中开头为root的行开始,到开头为hdfs的行结束的内容
+sed -n '/^root/,/^hdfs/p' /etc/passwd
+
+# 6、打印 /etc/passwd 中第8行开始 到含有/sbin/nologin的内容的行结束内容
+
+sed -n '8,//sbin\/nologin/p' /etc/passwd
+
+# 7、打印/etc/passwd中第一个包含/bin/bash内容的行开始,到第5行结束的内容 
+sed -n '/\/bin\/bash/,5p' /etc/passwd
 ```
 
 
