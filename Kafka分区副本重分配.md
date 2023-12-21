@@ -33,16 +33,23 @@ transaction.state.log.replication.factor 创建内部主题,__transaction_state 
    ！！！ --generate 副本数是通过assignment.head.replicas.size 获取的意思是 第一个分区的副本数量，正常情况下分区副本都会相同，分区数量是当前topic已存在的数量
    
    ### 跨目录迁移
-   
-   
-   
-   
 
 ## 3、如何更合理的进行分区副本重分配
 
 1. 低峰期执行分配
+
 2. 尽量减少分区分配的数据量
+
+   1. 临时减少数据过期时间  Broker端配置 log.retention.hours
+
+   2. Topic 端配置 retention.ms
+
+   3. 迁移完成时候见数据过期时间改回来
+
+      
+
 3. 限流，减少流量坡增对集群的影响
+
 4. 使用LogiKM可视化操作完成数据迁移
 
 ## 4、如何使用LogiKM可视化方便的数据迁移
